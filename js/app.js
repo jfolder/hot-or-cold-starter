@@ -80,14 +80,11 @@ $("input#guessButton").click(function(e) {
 
 		points = +$("span#score").data("scoreStored");
 
-		alert(key);
-
 		//Check temperature and configure points
 		if (hunch == key) 
 		{
 			$("h2#feedback").text("Eureka! You found it!");
 			topScore = +$("section").data("finalScore");
-			alert("points = " + points + " AND topScore = " + topScore);
 			$("input#userGuess").attr("disabled", true);
 			$("input#guessButton").attr("disabled", true);
 			if(points > topScore) {
