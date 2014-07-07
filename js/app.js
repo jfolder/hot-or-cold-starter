@@ -80,16 +80,22 @@ $("input#guessButton").click(function(e) {
 
 		points = +$("span#score").data("scoreStored");
 
+		alert(key);
+
 		//Check temperature and configure points
 		if (hunch == key) 
 		{
 			$("h2#feedback").text("Eureka! You found it!");
 			topScore = +$("section").data("finalScore");
+			alert("points = " + points + " AND topScore = " + topScore);
 			$("input#userGuess").attr("disabled", true);
 			$("input#guessButton").attr("disabled", true);
-			if(points > topScore && topScore > 0) {
+			if(points > topScore) {
+				//It never gets in here because top score is 0
 				$("section").data("finalScore", points);
+				if(topScore > 0) {
 				alert("Congratulations, you have beat your top score!!!");
+				}
 			}
 			else if(points == topScore) {
 				alert("Congratulations, you have matched your top score!");
