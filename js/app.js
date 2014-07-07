@@ -94,6 +94,7 @@ $("input#guessButton").click(function(e) {
 			else if(points == topScore) {
 				alert("Congratulations, you have matched your top score!");
 			}
+			e.preventDefault();
 		}
 		else if (hunch >= (key - 10) && hunch <= (key + 10)) 
 		{
@@ -146,6 +147,7 @@ $("input#guessButton").click(function(e) {
 			$("span#score").text(0);
 			$("input#userGuess").attr("disabled", true);
 			$("input#guessButton").attr("disabled", true);
+			e.preventDefault();
 		}
 		else {
 			$("span#score").text(points);
