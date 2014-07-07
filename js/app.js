@@ -48,7 +48,7 @@ function newGame() {
 	var answer = generateAnswer();
 	var feedback = "Make Your Guess!";
 	var numberOfGuesses = 0;
-	var score = 10000; 
+	var score = 2000; 
 	$("section > h3").empty().prepend("Currently have <span id=\"score\">0</span> points left!"); //reset text
 	$("input#userGuess").attr("disabled", false); //enable the input box
 	$("input#guessButton").attr("disabled", false); //enable the input button
@@ -119,24 +119,24 @@ $("input#guessButton").click(function(e) {
 		{
 			//500 points removed
 			$("h2#feedback").text("You are cold");
-			points = points - 500;
+			points = points - 400;
 		}
 		else {
 			//1000 points removed
 			$("h2#feedback").text("You are Ice Cold");
-			points = points - 1000;
+			points = points - 500;
 		}
 
 		//Display new text depending on score
-		if (points <= 3000)
+		if (points <= 300)
 		{
 			$("section > h3").empty().prepend("A microscopic <span id=\"score\">0</span> points left!");
 		}
-		else if (points <= 5000)
+		else if (points <= 500)
 		{
 			$("section > h3").empty().prepend("Just another <span id=\"score\">0</span> points left!");
 		}
-		else if (points <= 7000) {
+		else if (points <= 1000) {
 			$("section > h3").empty().prepend("Only have <span id=\"score\">0</span> points left!");
 		}
 
