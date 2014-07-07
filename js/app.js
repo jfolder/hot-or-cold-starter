@@ -24,17 +24,16 @@ function getAnswer() {
 }
 function getGuess() {
 	var guess;
-	guess = +$("input#userGuess").val();
+	guess = $("input#userGuess").val();
 	$("input#userGuess").val("");
-	if ((guess == NaN) || (guess%1 != 0) || (guess < 1) || (guess > 100) || (jQuery.trim(guess).length == 0) || !($.isNumeric(guess)) )
+	if ((guess == NaN) || (guess%1 != 0) || (guess < 1) || (guess > 100) || ($.trim(guess).length == 0) || !($.isNumeric(guess)) )
 	{
-		(jQuery.trim(item).length == 0)
 		return "undefined";
 	}
 	else
 	{
 		$("ul#guessList").prepend("<li>" + guess + "</li>");
-		return guess;
+		return +guess; //return integer value of guess
 	}
 }
 function newGameConstructor(numberOfGuesses, score, feedback, answer) {
@@ -49,7 +48,7 @@ function newGame() {
 	var feedback = "Make Your Guess!";
 	var numberOfGuesses = 0;
 	var score = 2000; 
-	$("section > h3").empty().prepend("Currently have <span id=\"score\">0</span> points left!"); //reset text
+	$("section > h3").empty().prepend("Currently have <span id=\"score\">0</span> points!"); //reset text
 	$("input#userGuess").attr("disabled", false); //enable the input box
 	$("input#guessButton").attr("disabled", false); //enable the input button
 	cleanUp(); //remove left-over elements
@@ -70,7 +69,7 @@ $("input#guessButton").click(function(e) {
 
 	hunch = getGuess();
 
-	if(key == "undefined") { 
+	if(hunch == "undefined") { 
 		e.preventDefault();
 	}
 	else
@@ -128,15 +127,15 @@ $("input#guessButton").click(function(e) {
 		}
 
 		//Display new text depending on score
-		if (points <= 300)
+		if (points <= 700)
 		{
 			$("section > h3").empty().prepend("A microscopic <span id=\"score\">0</span> points left!");
 		}
-		else if (points <= 500)
+		else if (points <= 1000)
 		{
 			$("section > h3").empty().prepend("Just another <span id=\"score\">0</span> points left!");
 		}
-		else if (points <= 1000) {
+		else if (points <= 1500) {
 			$("section > h3").empty().prepend("Only have <span id=\"score\">0</span> points left!");
 		}
 
