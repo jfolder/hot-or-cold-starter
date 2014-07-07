@@ -26,8 +26,9 @@ function getGuess() {
 	var guess;
 	guess = +$("input#userGuess").val();
 	$("input#userGuess").val("");
-	if ((guess == NaN) || (guess%1 != 0) || (guess < 1) || (guess > 100) || !($.isNumeric(guess)) )
+	if ((guess == NaN) || (guess%1 != 0) || (guess < 1) || (guess > 100) || (jQuery.trim(guess).length == 0) || !($.isNumeric(guess)) )
 	{
+		(jQuery.trim(item).length == 0)
 		return "undefined";
 	}
 	else
