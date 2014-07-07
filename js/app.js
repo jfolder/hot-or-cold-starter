@@ -85,10 +85,10 @@ $("input#guessButton").click(function(e) {
 		{
 			$("h2#feedback").text("Eureka! You found it!");
 			topScore = +$("section").data("finalScore");
-			$("section").data("finalScore", points);
 			$("input#userGuess").attr("disabled", true);
 			$("input#guessButton").attr("disabled", true);
 			if(points > topScore && topScore > 0) {
+				$("section").data("finalScore", points);
 				alert("Congratulations, you have beat your top score!!!");
 			}
 			else if(points == topScore) {
